@@ -7,17 +7,20 @@ import { useEffect, useState } from "react";
 const SECRETS_NAME = "kod-generator-secrets";
 const EXPORTED_NAME = "kod-generator-exported";
 
-const loadFromStorage = (key: string) => {
-  const raw = localStorage.getItem(key);
-  if (!raw) return [];
-  return JSON.parse(raw);
-};
-
-const saveInStorage = (key: string, tokens: Token[]) => {
-  localStorage.setItem(key, JSON.stringify(tokens));
-};
 
 export function useTokens() {
+  const loadFromStorage = (key: string) => {
+    if (typeof window === "undefined") return [];
+    const raw = localStorage.getItem(key);
+    if (!raw) return [];
+    return JSON.parse(raw);
+  };
+  
+  const saveInStorage = (key: string, tokens: Token[]) => {
+    if (typeof window === "undefined") return;
+    localStorage.setItem(key, JSON.stringify(tokens));
+  };
+
   const [tokens, setTokens] = useState<Token[]>(loadFromStorage(SECRETS_NAME));
   const [codes, setCodes] = useState<Record<string, string>>({});
   const [timeRemaining, setTimeRemaining] = useState(30);
