@@ -27,6 +27,7 @@ export function Import({
             });
           }
         } catch (error) {
+          console.error(error);
           alert(
             "Invalid file format. Please select a valid 2FA tokens export file."
           );

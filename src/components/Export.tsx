@@ -1,6 +1,5 @@
 import type { Token } from "@/token";
 import { Download } from "lucide-react";
-import { Dispatch, SetStateAction } from "react";
 
 export function Export({
   tokens,

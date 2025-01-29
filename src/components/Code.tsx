@@ -29,7 +29,7 @@ export function Code({
     }
   };
 
-  const handleCopyCode = async (id: string) => {
+  const handleCopyCode = async () => {
     const rawCode = code.replace(/\s/g, "");
     if (rawCode) {
       await navigator.clipboard.writeText(rawCode);
@@ -79,7 +79,7 @@ export function Code({
             {formatCode(code)}
           </div>
           <button
-            onClick={() => handleCopyCode(token.id)}
+            onClick={() => handleCopyCode()}
             className={`absolute right-0 top-1/2 -translate-y-1/2 p-2 rounded-lg 
           ${
             copied
