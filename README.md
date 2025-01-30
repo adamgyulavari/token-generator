@@ -2,6 +2,10 @@
 
 This project is created so the official governmental authentication can list a code generator app that is developed by a Hungarian citizen for other Hungarian citizens.
 
+[Live at https://kodgenerator.app](https://kodgenerator.app)
+
+![](example.png)
+
 The underlying algorithm is provided by the open source [OTPAuth library](https://github.com/hectorm/otpauth).
 
 The secrets are only stored in the local storage of the user's browser, no data is sent anywhere.
